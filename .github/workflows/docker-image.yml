@@ -25,4 +25,5 @@ jobs:
         password: ${{ secrets.DOCKER_TOKEN }}
     - name: Push the Docker image
       run: docker push ccuinit/simplewebapp:$(date +%s)
+     
         

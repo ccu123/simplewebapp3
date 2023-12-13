@@ -15,6 +15,17 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag simplewebapp:${{github.run_id}}
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:${{github.run_id}}
     - name: Tag the Docker image
       run: docker tag simplewebapp:$(github.run_id) ccuinit/simplewebapp:${{github.run_id}}
